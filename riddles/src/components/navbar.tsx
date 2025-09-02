@@ -7,8 +7,10 @@ export default function Navbar(){
         <nav className='Navbar'>
         <Link to="/">Home Page</Link>
         <Link to="/play">Play</Link>
+        <Link to="/createRiddle">Create Riddle</Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
+
         </nav>
         </>
     )

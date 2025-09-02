@@ -3,6 +3,7 @@ export default function Play(){
         <>
         <h1>Welcome to the game</h1>
         <h3>The riddles will be displayed shortly...</h3>
+        <h5>(Need to fetch from database!)</h5>
         </>
     )
 }
