@@ -1,0 +1,6 @@
+.Navbar{
+    display: grid;
+    justify-content: space-between;
+    color: white;
+    background-color: #9292da;
+}
