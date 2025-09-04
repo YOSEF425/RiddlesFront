@@ -10,6 +10,8 @@ export default function Navbar(){
         <Link to="/createRiddle">Create Riddle</Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
+        
+        
 
         </nav>
         </>

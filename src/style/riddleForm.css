@@ -1,0 +1,30 @@
+.riddleForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    
+}
+
+.btn{
+    height: 5vh;
+    width: 20vw;
+}
+
+.title{
+    text-align: center;
+    color: white;
+}
+
+.submit{
+    margin-top: 2%;
+    width: 15vw;
+    height: 5vh;
+    border-radius: 5%;
+}
+
+
+.chooseLevel{
+    width: 20vw;
+}
