@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { data } from "react-router";
+import { data, Link } from "react-router";
 
 export default function Login() {
 
@@ -29,8 +29,7 @@ export default function Login() {
     return (
     <div>
       <form onSubmit={verify}>
-        <h3>If you are registerd, click this button to move forward!</h3>
-        <button type="submit">Click Here</button>
+        <Link to="/admin">Extra features for admin and users only</Link>
       </form>
       
       

@@ -7,7 +7,6 @@ export default function HomeNav(){
         <>
         <nav className='homenav'>
         <Link to="/play" className='navBtn'>Play</Link>
-        <Link to="/login" className='navBtn'>Login</Link>
         <Link to="/register" className='navBtn'>Register</Link>
         </nav>
         </>

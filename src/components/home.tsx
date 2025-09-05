@@ -10,7 +10,7 @@ export default function Home(){
         <h1>Welcome to Riddle Game!</h1>
         <h4 className='quote'>What you seek is hidden in what you know</h4>
         <HomeNav/>
-                <Link to="/admin">Extra features for admin and users only</Link>
+                
 
         </div>
        

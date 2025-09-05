@@ -8,6 +8,7 @@
 .navBtn{
   padding: 10px 20px;
   background-color: #007bff;
+  border: solid purple 2px;
   color: white;
   text-decoration: none;
   border-radius: 5px;
