@@ -1,30 +1,40 @@
-.riddleForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10%;
-    
+.background{
+    background-color: rgb(216, 138, 231);
+    min-height: 100vh;
 }
 
-.btn{
-    height: 5vh;
-    width: 20vw;
+.form{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    background-color: burlywood;
+    margin-left: 27%;
+    margin-top: 8vh;
+    padding: 2%;
+    gap:1vh
 }
+
+.upload{
+    width:30%;
+    height: 5vh;
+    background-color: lightblue;
+    border-radius: 4%;
+}
+
+.upload:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid #00bcd4;
+}
+
 
 .title{
     text-align: center;
-    color: white;
 }
 
-.submit{
-    margin-top: 2%;
-    width: 15vw;
+.inp{
+    width: 50%;
     height: 5vh;
-    border-radius: 5%;
-}
-
-
-.chooseLevel{
-    width: 20vw;
 }

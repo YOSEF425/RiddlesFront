@@ -1,4 +1,17 @@
 .showFlex{
     display: flex;
-    justify-content:space-evenly;
+    justify-content: center;
+    gap: 3%;
+}
+
+.adminNav{
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    
+}
+
+.adminsOnly{
+    text-align: center;
+    margin-top: 10%;
 }

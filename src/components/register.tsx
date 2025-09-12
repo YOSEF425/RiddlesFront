@@ -23,7 +23,7 @@ export default function Register() {
       if (data.token) {
         setToken(data.token);
         localStorage.setItem('authToken', data.token);
-        console.log('Token saved:', data.token);
+        alert('You were registered successfully!')
         navigate('/show'); 
       } else {
         console.log('No token received');
@@ -50,7 +50,7 @@ export default function Register() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Submit</button>
+          <button type="submit" className="submit">Submit</button>
         </form>
       </div>
     </div>
