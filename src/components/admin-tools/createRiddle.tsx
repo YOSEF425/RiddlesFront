@@ -1,64 +1,79 @@
-import { useState } from "react"
+// import { useState } from "react"
+import { Link } from 'react-router';
 import '../../style/riddleForm.css';
 
-
-export default function createRiddle(){
-    const [riddleName,setRiddleName] = useState('')
-    const [level,setLevel] = useState('')
-    const [question,setQuestion] = useState('')
-    const [answer,setAnswer] = useState('')
-
-    const fetchCR = async(e: any) => {
-      e.preventDefault()
-        const result = await fetch('http://localhost:5000/api/riddles/add', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({riddleName,level,question,answer})
-       });
-       const worked = result.ok
-       const data = await result.text()
-       alert('Riddle added successfully!');
-       
-    }
+import { useEffect, useState } from "react"
 
 
-    return(
-      <>
-      <h2 className="title">Add A Riddle</h2>
-      <form className="riddleForm" onSubmit={fetchCR}>
-        <input className="btn"
-        type="text"
-        placeholder="Riddle Name"
-        value={riddleName}
-        onChange={(element) => setRiddleName(element.target.value)}
-        />
-       
-        <input className="btn"
-        type="text"
-        placeholder="Riddle Question"
-        value={question}
-        onChange={(element) => setQuestion(element.target.value)}
-        />
-        <input className="btn"
-        type="text"
-        placeholder="Answer"
-        value={answer}
-        onChange={(element) => setAnswer(element.target.value)}
-        
-        />
-        <select value={level} onChange={(e) => setLevel(e.target.value)} className="choseLevel">
-  <option value="">--Riddle Level--</option>
-  <option value="Easy">Easy</option>
-  <option value="Medium">Medium</option>
-  <option value="Hard">Hard</option>
+
+
+export default function CreateRiddle(){
+  const[catagory,setCatagory] = useState('')
+  const[level,setLevel] = useState('')
+  const[question,setQuestion] =useState('')
+  const[answer,setAnswer] = useState('')
+
+  const handleCat = (e:any) => {
+    setCatagory(e.target.value)
+  }
+
+  const handleLev = (e:any) => {
+    setLevel(e.target.value)
+  }
+  const handleQes = (e:any) => {
+    setQuestion(e.target.value)
+  }
+  const handleAns = (e:any) => {
+    setAnswer(e.target.value)
+  }
+
+
   
-</select>
+  const upload = (e:any) => {
+    e.preventDefault()
+  
 
-        <button type="submit" className="submit">Submit</button>
-        <div>
-          
-        </div>
-      </form>
-      </>
-    )
+      fetch('http://localhost:5000/api/riddles/add',{
+        method:'POST',
+        headers: {'Content-Type': 'application/json'},
+        body:JSON.stringify({catagory,level,question,answer})
+      })
+    
+    .then(res => {
+      if(!res.ok){
+         throw new Error('Error uploading riddle');
+      }
+      else{
+        return res.text()
+      }
+    })
+    .then(data => {
+      alert('Your riddle has been uploaded successfully!')
+    })
+    .catch(err => {
+        
+        alert('Failed to upload riddle.');
+      });
+      
+    
+  }
+  return(
+    <>
+    <Link to="/" className='navBtn'>Home</Link>
+
+    <div className="background">
+      <h1 className='title'>Add your riddle here!</h1>
+    <form onSubmit={upload} className='form'>
+      <input type="text" value={catagory} placeholder="Catagory" className='inp' onChange={handleCat}/>
+      <input type="text" value={level} placeholder="Riddle Level (easy,medium,hard)" className='inp' onChange={handleLev}/>
+      <input type="text" value={question} placeholder="Question" className='inp' onChange={handleQes}/>
+      <input type="text" value={answer} placeholder="Answer" className='inp' onChange={handleAns}/>
+
+
+     <button type="submit" className='upload'>Upload</button>
+    </form>
+    </div>
+
+    </>
+  )
 }

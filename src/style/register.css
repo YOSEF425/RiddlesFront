@@ -1,9 +1,11 @@
 .regForm{
     display: flex;
     flex-direction: column;
-    row-gap: 5%;
-    
+    column-gap: 50%;
+    padding: 4%;
+    background-color: rgb(141, 56, 141);    
     align-items: center;
+    border-radius: 3%;
     margin-top: 10%;
     
 }
@@ -19,4 +21,11 @@
     align-items: center;
     
    
+}
+
+.submit{
+    
+    border-radius: 5%;
+    background-color: gray;
+    font-weight: 500;
 }
