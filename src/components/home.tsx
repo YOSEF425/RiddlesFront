@@ -1,5 +1,5 @@
 import '../style/home.css'
-import AdminNav from './extraAdminOpts'
+import AdminNav from './options'
 import { Link } from 'react-router'
 import Riddle from './riddle'
 
@@ -14,7 +14,7 @@ export default function Home(){
 
         <nav className='homenav'>
 
-        <Link to="/play" className='navBtn playBtn' onClick={(e) => console.log(e)}>Play</Link>
+        <Link to="/play" className='navBtn playBtn'>Play</Link>
         <Link to="/register" className='navBtn'>Register</Link>
         <Link to="/login" className='navBtn'>Login</Link>
         </nav>
