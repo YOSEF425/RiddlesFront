@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import '../style/options.css'
+
 export default function OptionPage(){
  
 
