@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import '../style/extraFeatureNav.css'
+// import '../style/extraFeatureNav.css'
 
 export default function OptionPage(){
  
