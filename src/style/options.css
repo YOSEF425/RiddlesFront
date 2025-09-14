@@ -1,0 +1,30 @@
+.optionsPage{
+    background-color: red;
+}
+.navPage{
+    display: flex;
+    flex-direction: column;
+  
+}
+.firstRow{
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+    gap: 2%;
+    margin-top: 10%;
+}
+
+.secondRow{
+    display: flex;
+    justify-content: center;
+    gap:2%
+}
+
+
+.btn{
+    background-color: rgb(171, 203, 234);
+    height: 8vh;
+    width: 20wh;
+    padding: 1%;
+    border-radius: 2%;
+}
