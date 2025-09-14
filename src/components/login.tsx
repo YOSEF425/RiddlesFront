@@ -1,39 +1,31 @@
-import { useState } from "react";
-import { data, Link } from "react-router";
+import { useState } from "react"
 
-export default function Login() {
+export default function Login(){
+  const[name,setName] = useState('')
+  const[password,setPassword] = useState('')
+  
+  const handleName = (e:any) => {
+    setName(e.target.value)
+  }
 
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const token = localStorage.getItem('authToken');
+   const handlePassword = (e:any) => {
+    setPassword(e.target.value)
+  }
 
-     const verify = async(e:any) => {
-        e.preventDefault();
-       const result = await fetch('http://localhost:5000/api/login', {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-          },
-          
-          body: JSON.stringify({ name, password })
-          
-       });
-       if (result.ok) {
-       alert('Login successful!');
-       }else{
-        alert('login failed')
-       }
-    }
-    
 
-    return (
-    <div>
-      <form onSubmit={verify}>
-        <Link to="/admin">Extra features for admin and users only</Link>
-      </form>
-      
-      
-    </div>
-  );
+  const verify = () => {
 
+  }
+  
+  return(
+    <>
+    <form onSubmit={verify}>
+      <input type="text" placeholder="Your Name" onChange={handleName}/>
+      <input type="text" placeholder="Password" onChange={handlePassword}/>
+      <button type="submit">Login</button>
+
+    </form>
+
+    </>
+  )
 }
