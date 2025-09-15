@@ -1,0 +1,39 @@
+.loginPage{
+    background-color: rgb(217, 189, 239);
+     min-height: 100vh;
+     /* width: 100%; */
+}
+
+.loginFlex{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-top: 10%;
+    background-color: rgb(227, 214, 221);
+    width: 30%;
+    padding: 3%;
+    border-radius: 5px;
+    
+    
+    
+    
+}
+
+.input{
+    height: 5vh;
+    width: 100%;
+}
+
+.loginBtn{
+    width: 40%;
+    height: 5vh;
+    margin-left: 28%;
+    background-color: rgb(180, 180, 243);
+    font-weight: bold;
+    color: white;
+}
+
+.title2{
+    text-align: center;
+    color: white;
+}

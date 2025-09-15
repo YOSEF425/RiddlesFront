@@ -13,6 +13,7 @@ import './index.css'
 import App from './App.tsx'
 import OptionPage from './components/options.tsx';
 import Login from './components/login.tsx';
+import GetAllRiddles from './components/admin-tools/getAllRiddles.tsx';
 
 
 
@@ -27,8 +28,10 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/register" element={<Register />} />
       <Route path="/admin" element={<AdminNav />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/display" element={<GetAllRiddles/>} />
 
 
+   
 
 
       <Route path="/admin/create" element={<CreateRiddle />} />
