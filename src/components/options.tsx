@@ -14,7 +14,7 @@ export default function OptionPage(){
         <div className="navPage">
         <nav className='firstRow'>
         <Link to="/admin/create" className="btn">Create Riddle</Link>
-        <Link to="/admin/display" className="btn">Display Riddles</Link>
+        <Link to="/display" className="btn">Display Riddles</Link>
         </nav>
         <nav className="secondRow">
         <Link to="/admin/delete" className="btn">Delete Riddle</Link>
