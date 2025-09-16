@@ -12,7 +12,7 @@ export default function Riddle({ catagory, level, question, input, setInput }: R
   return (
     <div>
       <div className="riddle">
-      <div className='catagory'>Category: {catagory} </div>
+      <div className='catagory'>Catagory: {catagory} </div>
       <div>Level: {level}</div>
       <div className='question'>Question: {question}</div>
       <input
