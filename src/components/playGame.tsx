@@ -1,62 +1,70 @@
-import { useState, useEffect } from 'react';
-import Riddle from './riddle';
-import '../style/play.css'
+import { useState } from 'react';
+import styles from '../style/play.module.css';
 
-type RiddleType = {
-  catagory: string;
+type Riddle = {
+  category: string;
   level: string;
   question: string;
   answer: string;
 };
 
-export default function Play() {
-  const [riddles, setRiddles] = useState<RiddleType[]>([]);
+export default function PlayGame() {
+  const [riddles, setRiddles] = useState<Riddle[]>([]);
+  const [guess, setGuess] = useState('');
   const [index, setIndex] = useState(0);
-  const [input, setInput] = useState('');
-  const [message, setMessage] = useState('');
+  const [feedbackMessage, setFeedbackMessage] = useState('');
 
-  useEffect(() => {
-    fetch('http://localhost:5000/api/riddles/play')
-      .then(res => res.json())
-      .then(data => 
-        setRiddles(data))
-      .catch(err => console.error(err));
-  }, []);
+  const current = riddles[index] ?? null;
 
-  const handleSubmit = () => {
-  const current = riddles[index];
-  if (input.trim().toLowerCase() === current.answer.trim().toLowerCase()) {
-    setMessage('Good job!');
-    setInput('');
-    setIndex(prev => prev + 1); 
+  const getRiddles = async () => {
+    const result = await fetch('http://localhost:5000/api/riddles/play');
+    const data = await result.json();
+    setRiddles(data);
+  };
+
+const checkAnswer = (guess: string) => {
+  if (current && guess.toLowerCase() === current.answer.toLowerCase()) {
+    setFeedbackMessage('Good job!');
+    setGuess('');
+    setTimeout(() => {
+      setFeedbackMessage('');
+      setIndex(index + 1);
+    }, 1500); 
   } else {
-    setMessage('Try again');
-    setInput(''); 
+    setFeedbackMessage('Try again!');
+    setTimeout(() => {
+      setFeedbackMessage('');
+    }, 1000); 
   }
 };
 
-  if (index >= riddles.length) {
-    return <p>All riddles completed!</p>;
-  }
-
-  const current = riddles[index];
 
   return (
-    <div>
-      <div className='playPage'>
-        <div className='actualRiddle'>
-      <Riddle
-        catagory={current.catagory}
-        level={current.level}
-        question={current.question}
-        input={input}
-        setInput={setInput}
-      />
-      </div>
-      
-      <button onClick={handleSubmit} className='submitBtn'>Submit</button>
-      {message && <p>{message}</p>}
-      </div>
+    <div className={styles.container}>
+      {current && (
+        <>
+          <p className={styles.label}>Category: {current.category}</p>
+          <p className={styles.label}>Level: {current.level}</p>
+          <p className={styles.question}>{current.question}</p>
+          <input
+            type="text"
+            value={guess}
+            onChange={(e) => setGuess(e.target.value)}
+            placeholder="Your Answer"
+            className={styles.input}
+          />
+          <button className={styles.button} onClick={() => checkAnswer(guess)}>
+            Enter
+          </button>
+          {feedbackMessage && (
+            <p className={styles.feedback}>{feedbackMessage}</p>
+          )}
+        </>
+      )}
+      <button className={styles.loadButton} onClick={getRiddles}>
+        Load Riddles
+      </button>
     </div>
   );
 }
+
